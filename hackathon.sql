@@ -135,6 +135,10 @@ having COUNT(p.crop_id) >= 2;
  -- 22
  select * from Crops
  where expected_yield > (select avg(expected_yield) from Crops);
-
+-- 23 
+	select distinct z.zone_name from Planting_Logs p
+	join Crops c on p.crop_id = c.crop_id
+	join Zones z on p.zone_id = z.zone_id
+	where c.crop_name = 'Cà chua Cherry';
 
  
